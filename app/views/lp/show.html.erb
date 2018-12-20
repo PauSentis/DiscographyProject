@@ -1,0 +1,17 @@
+<div class="col-lg-9">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= image_tag @lp.url, :size =>"250x250"%>
+      <h2 class="padd"> <%= @lp.name %> </h2>
+      <p class="padd"> <%= @lp.description %> </p>
+      <div>
+        <a href="">Edit</a>
+      </div>
+      <div>
+        <%= link_to 'Remove LP', {:controller => "lp", :action => :delete, :id =>@lp}, {:method => :delete}%>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

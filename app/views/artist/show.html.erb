@@ -1,0 +1,21 @@
+<div class="col-lg-9">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= image_tag @artist.url, :size =>"250x250"%>
+      <h2 class="padd"> <%= @artist.name %> </h2>
+      <p class="padd"> <%= @artist.description %> </p>
+      <p class="card-text"><%= "Has #{@artist.lps.count} LPs" %></p>
+      <div>
+        <a href="">Add LP</a>
+      </div>
+      <div>
+        <a href="">Edit</a>
+      </div>
+      <div>
+        <%= link_to 'Remove artist', {:controller => "artist", :action => :delete, :id =>@artist}, {:method => :delete}%>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

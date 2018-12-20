@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DiscographyProject</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Discography project Task</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h1>Menu</h1>
+          <div class="list-group">
+            <a href="<%= root_path(tolist: :ARTISTS)%>" class="text-green list-group-item">List artists</a>
+            <a href="<%= root_path(tolist: :LPS)%>" class="text-green list-group-item">List LPs</a>
+            <a href="" class="text-green list-group-item">Create Artist</a>
+          </div>
+
+          <div class="sep">
+            <form>
+              <div >
+                <%= form_tag(root_path, method: :get) do %>
+                <%= text_field_tag :search, params[:search] %>
+                <small class="form-text text-muted">Search by artist name</small>
+                <%= submit_tag 'Search', name: nil %>
+                <% end %>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <%= yield %>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/assets/javascripts/jquery.min.js"></script>
+    <script src="vendor/assets/javascripts/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

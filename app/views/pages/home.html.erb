@@ -1,0 +1,46 @@
+
+
+<div class="col-lg-9">
+
+  <div class="row">
+
+    <% if params[:tolist]=='ARTISTS'; @artists.each do |artist| %>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <a href="<%= artist_path(id: artist)%>" class="text-black"><img class="card-img-to imageResolution" src="<%= artist.url %>" alt=""  style="max-width:100%;width:auto;height:200px;">
+        <div class="card-body">
+          <h4 class="card-title"><%= artist.name %></h4></a>
+          <a href="<%= root_path(tolist: :LPS, artist: artist)%>">List LPs artist </a>
+
+        </div>
+        <div class="card-footer">
+
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
+
+    <% else @lps.each do |lp| %>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <a href="<%= lp_path(id: lp)%>" class="text-black"><img class="card-img-to imageResolution" src="<%= lp.url %>" alt="">
+        <div class="card-body">
+          <h4 class="card-title"><%= lp.name %></a></h4>
+        </div>
+        <div class="card-footer">
+
+        </div>
+      </div>
+    </div>
+
+    <% end end%>
+
+
+  </div>
+  <!-- /.row -->
+
+</div>
