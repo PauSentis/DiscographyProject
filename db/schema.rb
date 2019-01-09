@@ -13,17 +13,17 @@
 ActiveRecord::Schema.define(version: 20181219202053) do
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "url"
+    t.string "name", default: ""
+    t.text "description", default: ""
+    t.string "url", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lps", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "url"
+    t.string "name", default: ""
+    t.text "description", default: ""
+    t.string "url", default: ""
     t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
