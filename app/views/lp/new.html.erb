@@ -1,0 +1,27 @@
+<div class="modify">
+
+  <%= form_for @lp, :url => {action: :create} do |f|  %>
+    <p>
+      <%= f.label :name, 'Name' %><br>
+      <%= f.text_field :name, size: 50 %>
+    </p>
+
+    <p>
+      <%= f.label :url, 'Image url' %><br>
+      <%= f.text_field :url, size: 50 %>
+    </p>
+
+    <p>
+      <%= f.label :description, 'Description' %><br>
+      <%= f.text_area :description, size: '50x10' %>
+    </p>
+
+      <%= f.hidden_field :artist_id, value: params[:idArtist] %>
+
+    <p>
+      <%= f.submit 'Save' %>
+    </p>
+  <% end %>
+
+
+</div>
