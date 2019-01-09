@@ -33,16 +33,16 @@
           <div class="list-group">
             <a href="<%= root_path(tolist: :ARTISTS)%>" class="text-green list-group-item">List artists</a>
             <a href="<%= root_path(tolist: :LPS)%>" class="text-green list-group-item">List LPs</a>
-            <a href="" class="text-green list-group-item">Create Artist</a>
+            <a href="<%= newartist_path()%>" class="text-green list-group-item">Create Artist</a>
           </div>
 
           <div class="sep">
             <form>
               <div >
                 <%= form_tag(root_path, method: :get) do %>
+                <%= label_tag :name, 'Search by artist name' %><br>
                 <%= text_field_tag :search, params[:search] %>
-                <small class="form-text text-muted">Search by artist name</small>
-                <%= submit_tag 'Search', name: nil %>
+                <%= submit_tag 'Search'%>
                 <% end %>
               </div>
             </form>

@@ -6,7 +6,10 @@
       <h2 class="padd"> <%= @lp.name %> </h2>
       <p class="padd"> <%= @lp.description %> </p>
       <div>
-        <a href="">Edit</a>
+        <%= link_to 'Artist', {:controller => "artist", :action => :show, :id =>@lp.artist}, :method => :get%>
+      </div>
+      <div>
+        <%= link_to 'Edit LP', {:action => :edit, :id =>@lp}, :method => :get%>
       </div>
       <div>
         <%= link_to 'Remove LP', {:controller => "lp", :action => :delete, :id =>@lp}, {:method => :delete}%>

@@ -7,5 +7,3 @@ Para este proyecto se ha utilizado las versiones:
 
 Para instalar este proyecto es necesario situarse dentro del proyecto y ejecutar el comando "bundle install", luego ejecutar el comando
 "rake: db:create db:migrate db:seed". Finalmente se ejecutará "rails server" y linkaremos a la url: http://localhost:3000
-
-En este proyecto falta programar en frontend las funciones crear y modificar los elementos, pero a nivel background está completo.

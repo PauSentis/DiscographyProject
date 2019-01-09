@@ -1,6 +1,10 @@
 class LpController < ApplicationController
   def show
-    @lp = Lp.find(params[:id])
+    if !params[:search].nil?
+        redirect_to(controller: 'pages', action: 'home', search: params[:search])
+    else
+      @lp = Lp.find(params[:id])
+    end
   end
 
   def new
@@ -9,21 +13,26 @@ class LpController < ApplicationController
 
   def create
     lp = Lp.new(lp_params)
+    Artist.find(lp_params[:artist_id]).lps << lp
     if lp.save
-      redirect_to(crontroller: 'artist', action: 'show' , id: Artist.find(params[:artist_id]))
+      redirect_to(action: 'show' , id: lp.id)
     else
       redirect_to(action: 'new')
     end
   end
 
   def edit
-    @lp = Lp.find(params[:id])
+    if !params[:search].nil?
+        redirect_to(controller: 'pages', action: 'home', search: params[:search])
+    else
+      @lp = Lp.find(params[:id])
+    end
   end
 
   def update
-    lp = Lp.find(params[:id])
+    lp = Lp.find(params[:lp][:id])
     lp.update(lp_params)
-    redirect_to(lp: 'show', id: lp.id)
+    redirect_to(action: 'show', id: lp.id)
   end
 
   def delete

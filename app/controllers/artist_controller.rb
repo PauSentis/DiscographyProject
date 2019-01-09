@@ -1,6 +1,10 @@
 class ArtistController < ApplicationController
   def show
-    @artist = Artist.find(params[:id])
+    if !params[:search].nil?
+        redirect_to(controller: 'pages', action: 'home', search: params[:search])
+    else
+      @artist = Artist.find(params[:id])
+    end
   end
 
   def new
@@ -17,13 +21,17 @@ class ArtistController < ApplicationController
   end
 
   def edit
-    @artist = Artist.find(params[:id])
+    if !params[:search].nil?
+        redirect_to(controller: 'pages', action: 'home', search: params[:search])
+    else
+      @artist = Artist.find(params[:id])
+    end
   end
 
   def update
-    artist = Artist.find(params[:id])
+    artist = Artist.find(params[:artist][:artist_id])
     artist.update(artist_params)
-    redirect_to(action: 'show', id: artist.id)
+    redirect_to(action: 'show', id: params[:artist][:artist_id])
   end
 
   def delete

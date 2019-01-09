@@ -5,15 +5,17 @@
       <%= image_tag @artist.url, :size =>"250x250"%>
       <h2 class="padd"> <%= @artist.name %> </h2>
       <p class="padd"> <%= @artist.description %> </p>
-      <p class="card-text"><%= "Has #{@artist.lps.count} LPs" %></p>
-      <div>
-        <a href="">Add LP</a>
+      <div class="nLP">
+        <a href="<%= root_path(tolist: :LPS, artist: @artist)%>" ><%= "Has #{@artist.lps.count} LPs" %></a>
       </div>
       <div>
-        <a href="">Edit</a>
+        <%= link_to 'Add LP', {:controller => "lp", :action => :new, :idArtist =>@artist}, :method => :get%>
       </div>
       <div>
-        <%= link_to 'Remove artist', {:controller => "artist", :action => :delete, :id =>@artist}, {:method => :delete}%>
+        <%= link_to 'Edit artist', {:action => :edit, :id =>@artist}, :method => :get%>
+      </div>
+      <div>
+        <%= link_to 'Remove artist', {:action => :delete, :id =>@artist}, :method => :delete%>
       </div>
     </div>
   </div>
